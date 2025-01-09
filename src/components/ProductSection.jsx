@@ -7,7 +7,7 @@ const ProductSection = () => {
   const products = [
     {
       id: 1,
-      name: "Apple Smart Watch",
+      name: "Apple Watch",
       description:
         "Stay connected, motivated, and healthy with the latest Apple Watch.",
       category: "men",
@@ -82,12 +82,11 @@ const ProductSection = () => {
   };
 
   return (
-    <div className="container mx-auto flex gap-10 items-start">
-      <div className="w-1/4">
-        <ProductFilter onFilterChange={handleFilterChange} />
-      </div>
-
-      <div className="w-3/4 grid grid-cols-2 xl:grid-cols-4 gap-5">
+    <div className="container mx-auto flex flex-col gap-10 items-start mt-10 px-2 md:px-0">
+      <p className="bg-gradient-to-r from-primary to-white bg-clip-text text-transparent font-bold text-4xl md:text-6xl w-fit">
+        Our Latest Collection
+      </p>
+      <div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
         {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}

@@ -7,8 +7,8 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     token: "null",
-    user: null,
-    role: null,
+    user: "null",
+    role: "admin",
   });
   const navigate = useNavigate();
 

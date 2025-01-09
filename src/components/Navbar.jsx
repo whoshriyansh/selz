@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const { cartItems } = useCart();
@@ -8,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar w-full shadow">
       <div className="navbar py-0 rounded-box flex w-full items-center justify-between gap-2 container mx-auto">
         <div className="navbar-start max-md:w-1/4">
-          <a href="#" aria-label="Homepage Link">
+          <NavLink to={"/"} aria-label="Homepage Link">
             <svg
               width="24"
               height="24"
@@ -23,21 +24,21 @@ const Navbar = () => {
                 fill="oklch(var(--p))"
               />
             </svg>
-          </a>
+          </NavLink>
         </div>
         <div className="navbar-center max-md:hidden">
           <ul className="menu menu-horizontal p-0 font-medium">
             <li>
-              <a href="#">Products</a>
+              <NavLink to={"/products"}>Products</NavLink>
             </li>
             <li>
-              <a href="#">Men</a>
+              <NavLink to={"/about"}>About</NavLink>
             </li>
             <li>
-              <a href="#">Women</a>
+              <NavLink to={"/contact-us"}>Contact Us</NavLink>
             </li>
             <li>
-              <a href="#">Kids</a>
+              <NavLink to={"/admin-signin"}>Admin</NavLink>
             </li>
           </ul>
         </div>
@@ -61,35 +62,40 @@ const Navbar = () => {
               aria-labelledby="dropdown-default"
             >
               <li>
-                <a className="dropdown-item" href="#">
-                  Link 1
-                </a>
+                <NavLink className="dropdown-item" to={"/products"}>
+                  Products
+                </NavLink>
               </li>
               <li>
-                <a className="dropdown-item" href="#">
-                  Link 2
-                </a>
+                <NavLink className="dropdown-item" to={"/about"}>
+                  About
+                </NavLink>
               </li>
               <li>
-                <a className="dropdown-item" href="#">
-                  Link 3
-                </a>
+                <NavLink className="dropdown-item" to={"/contact-us"}>
+                  Contact Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="dropdown-item" to={"/admin-signin"}>
+                  Admin Pannel
+                </NavLink>
               </li>
             </ul>
           </div>
           <a
-            className="btn max-md:btn-square btn-gradient btn-primary waves waves-light"
-            href="#"
+            className="btn btn-xs md:btn-sm max-md:btn-square btn-gradient btn-primary waves waves-light"
+            href="/signin"
           >
             <span className="max-md:hidden">Login</span>
             <span className="icon-[line-md--login] size-5"></span>
           </a>
           <a
-            className="btn btn-gradient btn-primary waves waves-light relative"
+            className="btn btn-sm md:btn-sm max-md:btn-square btn-gradient btn-primary waves waves-light relative px-6"
             href="#"
           >
-            <span href="#" className="icon-[mdi--cart] size-8 mr-1"></span>
-            <span className="badge bg-white text-primary font-extrabold size-4 absolute right-0 top-0">
+            <span href="#" className="icon-[mdi--cart-outline] size-6"></span>
+            <span className="badge badge-xs	 bg-white text-primary font-semibold size-3 absolute right-0 md:right-1 top-0">
               {cartItems.length}
             </span>
           </a>

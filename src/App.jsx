@@ -14,9 +14,12 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./layout/ProtectedRoute";
 import AuthorizedRoute from "./layout/AutorizedRoute";
-import MainLayout from "./layout/Layout";
+import MainLayout from "./layout/MainLayout";
 import { CartProvider } from "./context/CartContext";
 import CartPage from "./pages/CartPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import AdminLayout from "./layout/AdminLayout";
 
 function App() {
   return (
@@ -24,11 +27,13 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <Routes>
+            {/* User Routes with Main Layout */}
             <Route element={<MainLayout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/products" element={<ProductPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact-us" element={<ContactPage />} />
               <Route path="/cart" element={<CartPage />} />
-              <Route path="/admin-signin" element={<AdminSignIn />} />
 
               {/* User Routes */}
               <Route
@@ -47,8 +52,11 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+            </Route>
 
-              {/* Admin Routes */}
+            {/* Admin Routes with Admin Layout */}
+
+            <Route element={<AdminLayout />}>
               <Route
                 path="/admin-home"
                 element={
@@ -81,12 +89,15 @@ function App() {
                   </AuthorizedRoute>
                 }
               />
-
-              {/* 404 Page */}
-              <Route path="*" element={<NotFoundPage />} />
             </Route>
+
+            {/* Authentication Routes */}
+            <Route path="/admin-signin" element={<AdminSignIn />} />
             <Route path="/signin" element={<SignInPage />} />
             <Route path="/signup" element={<SignUpPage />} />
+
+            {/* 404 Page */}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </CartProvider>
       </AuthProvider>

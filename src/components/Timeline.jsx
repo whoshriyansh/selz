@@ -2,7 +2,10 @@ import React from "react";
 
 const Timeline = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-10">
+      <p className="bg-gradient-to-r from-primary to-white bg-clip-text text-transparent font-bold text-4xl md:text-6xl w-fit">
+        Project Information
+      </p>
       <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical timeline-centered">
         {/* Timeline item 1 */}
         <li>

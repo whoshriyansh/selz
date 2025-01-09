@@ -7,21 +7,22 @@ const ProductCard = ({ product }) => {
   const handleAddToCart = () => {
     addToCart(product);
   };
-
   return (
     <div className="card sm:max-w-full">
       <figure>
         <img src={product.image} alt={product.name} />
       </figure>
       <div className="card-body">
-        <h5 className="card-title mb-2">{product.name}</h5>
+        <h5 className="text-lg font-semibold text-white md:card-title mb-2">
+          {product.name}
+        </h5>
         <p className="mb-2">Price: ₹{product.price}</p>
         <div className="card-actions">
-          <button className="btn btn-sm btn-gradient btn-primary waves waves-light">
+          <button className="btn btn-xs  md:btn-sm btn-gradient btn-primary waves waves-light">
             Buy Now
           </button>
           <button
-            className="btn  btn-soft btn-sm btn-gradient btn-secondary waves waves-dark"
+            className="btn  btn-soft btn-xs  md:btn-sm btn-gradient btn-secondary waves waves-dark"
             onClick={handleAddToCart}
           >
             Add to cart
